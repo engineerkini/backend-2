@@ -1,14 +1,16 @@
-import { ConnectionOptions } from "typeorm";
+// ormconfig.ts (Database Configuration)
+import { DataSource } from "typeorm";
+import { User } from "./src/entity/User";
+import { Song } from "./src/entity/Song";
 
-const config: ConnectionOptions = {
+export const AppDataSource = new DataSource({
   type: "postgres",
   host: "localhost",
   port: 5432,
-  username: "your_username",
-  password: "your_password",
+  username: "postgres",
+  password: "password",
   database: "spotify_clone",
-  entities: ["dist/entity/**/*.js"],
   synchronize: true,
-};
-
-export default config;
+  logging: false,
+  entities: [User, Song],
+});

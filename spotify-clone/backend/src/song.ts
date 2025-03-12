@@ -1,14 +1,17 @@
-// src/entity/User.ts (User Entity)
+// src/entity/Song.ts (Song Entity)
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
-export class User {
+export class Song {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
-  email: string;
+  @Column()
+  title: string;
 
   @Column()
-  password: string;
+  artist: string;
+
+  @Column()
+  url: string;
 }
